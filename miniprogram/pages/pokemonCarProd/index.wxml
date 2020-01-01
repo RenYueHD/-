@@ -1,0 +1,31 @@
+<!--miniprogram/pages/pokemonCarProd/index.wxml-->
+<view>
+
+  <view class="page-body">
+    
+    <view class="page-section">
+      <view class="weui-cells__title">车名录入</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input maxlength="20" class="weui-input" auto-focus placeholder="请输入你的车名(20字内)" bindinput="bindCarNameInput" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="weui-cells__title">每人最大上车次数</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input type="number" maxlength="2" class="weui-input" value="{{limit}}" placeholder="请输入每人最大上次次数" bindinput="bindLimit" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="weui-cells__title">
+        <text>公开</text>
+        <switch class="change" checked="{{public}}" bindchange="publicChange"/>
+      </view>
+    </view>
+  </view>
+
+  <button loading="{{loading}}" disabled="{{loading}}" type="primary" bindtap="onCreateClick">开车了</button>
+</view>

@@ -1,0 +1,22 @@
+@import "lib/weui.wxss";
+
+button {
+  margin: 10px;
+  width: 90% !important;
+  font-weight: normal;
+}
+
+.red{
+  color:red;
+  font-weight: bold;
+}
+
+.ul{
+  margin-top:20px;
+  padding-left:20px;
+}
+.ul .li{
+  font-size:14px;
+  padding-top:2px;
+  color:#999
+}

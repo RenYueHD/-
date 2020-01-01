@@ -1,0 +1,82 @@
+<!--miniprogram/pages/pokemonCarProd/subs.wxml-->
+<view wx:if="{{!listenninig && !init}}">
+
+  <view class="page-body" wx:if="{{!shown}}">
+    
+    <view class="page-section">
+      <view class="weui-cells__title">请填写车牌</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input maxlength="17" class="weui-input" type="text" value="{{nSW}}" placeholder="车主SW号" bindinput="bindSWInput" />
+          <image bindtap="onSwDeleteClick" class="icon" src="/asserts/delete.svg"></image>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <button loading="{{loading}}" wx:if="{{!shown}}" type="warn" bindtap="showCar">点我先看下车况</button>
+
+  <view class="current" wx:if="{{!shown}}">
+    <view class="line head">
+      <view class="car-nickname">车主</view>
+      <view class="car-name">车名</view>
+      <view class="car-state">状态</view>
+    </view>
+    <view wx:if="{{list.length > 0}}">
+      <view wx:for="{{list}}">
+        <view id="{{item.nSW}}" bindtap="carClick" class="line">
+          <view class="car-nickname">{{item.nickName}}</view>
+          <view class="car-name">{{item.name}}</view>
+          <view class="car-state car-state-leave" wx:if="{{item.leave}}">暂离</view>
+          <view class="car-state" wx:else>{{item.span}}分钟前</view>
+        </view>
+      </view>
+    </view>
+    <view wx:else class="line">
+      <view class="car-nickname">暂无</view>
+    </view>
+    <view class="remark">以上正在发车中(点击上车)</view>
+  </view>
+
+  <view wx:if="{{shown}}">
+    <view class="nickname">{{car.nickName}}</view>
+    <view class="name">{{car.name}}</view>
+    <view class="queue">共 {{car.queue}} 人在等车</view>
+    <view class="leave" wx:if="{{car.leave}}">车主暂离</view>
+  </view>
+
+  <button loading="{{loading}}" wx:if="{{shown}}" type="primary" bindtap="onGoClick">我已加车主好友,我要上车</button>
+
+  <button loading="{{loading}}" wx:if="{{shown}}" bindtap="onBackClick">不想上这辆车</button>
+
+  <view class="ul" wx:if="{{shown}}">
+    <view class="li">没加到好友就上车会<text class="red">白白浪费上车次数</text>哦</view>
+    <view class="li">所以,如果没加到好友就别进去排队啦</view>
+  </view>
+</view>
+
+<view wx:if="{{listenninig || init}}">
+  <view class="name">{{car.name}}</view>
+  <view class="nickname">{{car.nickName}}</view>
+  <view class="sw">{{car.nSW}}</view>
+  
+  <view class="keybox">
+    <text>{{key}}</text>
+  </view>
+  <view wx:if="{{listenninig && car.limit-count>0}}">
+    <view class="count">总共 {{queue}} 人排队</view>
+    <view class="count">已上 {{count}} 次 剩余 {{car.limit-count}} 次</view>
+  </view>
+  <view wx:else>
+    <view class="count">总共 {{queue}} 人排队</view>
+    <view class="count">已上 {{count}} 次 剩余 {{car.limit-count}} 次 已停止排队</view>
+  </view>
+  
+  <view class="unleave" wx:if="{{!car.leave}}">正常发车中</view>
+  <view class="leave" wx:else>车主暂离</view>
+  
+  <view class="uploader">
+    <button class="goaway" bindtap="goAway">不上车了,走人</button>
+  </view>
+</view>

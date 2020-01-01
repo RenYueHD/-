@@ -1,0 +1,36 @@
+<!--miniprogram/pages/pokemonCarProd/running.wxml-->
+<view>
+  <view class="name">{{car.name}}</view>
+
+  <view class="sw">{{car.nSW}}</view>
+
+  <view class="keybox">
+    <text>{{key}}</text>
+  </view>
+
+  <view wx:if="{{waitting}}" style="display: flex;">
+    <view style="width:240px;">
+      <view class="waitting">正在等待乘客上车</view>
+      <view class="waitting">车位{{setter}}个 车上人数:{{subKeys.length}}</view>
+      <view class="waitting">排队人数:{{subCount}}</view>
+      <view class="waitting">单人次数限制:{{limit}}</view>
+    </view>
+    <view style="width:100px;margin-top:25px">
+      <button type="warn" disabled="{{addLoading || nextLoading}}" bindtap="onAddClick">再加个人</button>
+    </view>
+  </view>
+
+  <view class="uploader">
+    <button class="nextCar" disabled="{{nextLoading || addLoading}}" type="primary" bindtap="nextCar">到站了,下一车</button>
+  </view>
+
+  <view class="uploader">
+    <button bindtap="stopCar">累了,停车洗洗睡</button>
+  </view>
+
+  <view class="ul">
+    <view class="li">直接使用当前显示的密码开车</view>
+    <view class="li">可切出小程序,切回来后开车继续</view>
+    <view class="li">将SW发到贴吧或群里即可</view>
+  </view>
+</view>

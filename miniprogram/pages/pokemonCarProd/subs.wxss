@@ -1,0 +1,100 @@
+/* miniprogram/pages/pokemonCarProd/subs.wxss */
+.name{
+  margin-top:16px;
+  text-align: center;
+}
+
+.nickname{
+  margin-top:30px;
+  font-size: 24px;
+  text-align: center;
+}
+.queue{
+  margin-top:20px;
+  font-size: 16px;
+  text-align: center;
+}
+.sw{
+  margin-top:10px;
+  text-align: center;
+}
+
+.keybox{
+  border:solid 1px #666;
+  margin:20px auto 0px;
+  width:220px;
+  height:120px;
+  line-height:120px;
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 5px;
+}
+
+.goaway{
+  margin-top:120px;
+  bottom: 30px;
+}
+
+.count{
+  text-align: center;
+  color:#999;
+  margin-top:10px;
+}
+
+.weui-cell_input input{
+  width:300px;
+}
+.weui-cell_input .icon{
+  width:20px;
+  height: 20px;
+  margin-right: 20px;
+  opacity: 0.5;
+}
+.unleave{
+  margin-top:20px;
+  text-align: center;
+  color:green;
+  font-size:24px;
+}
+.leave{
+  margin-top:20px;
+  text-align:center;
+  color:red;
+  font-size:24px;
+}
+.current{
+  margin:20px;
+}
+.current .remark{
+  margin-top:10px;
+  border-top: solid 1px #999;
+  height:30px;
+  line-height:30px;
+  font-size: 14px;
+  color: #999;
+  text-align: center;
+}
+.current .line{
+  font-size:14px;
+  color:#666;
+  height:24px;
+  line-height:24px;
+  display: flex;
+  padding-top:4px;
+}
+.current .head{
+  border-bottom: solid 1px #999;
+}
+.current .line .car-nickname{
+  width: 90px;
+}
+.current .line .car-name{
+  width:180px;
+}
+.current .line .car-state{
+  width:70px;
+  text-align: right;
+}
+.current .line .car-state-leave{
+  color: crimson
+}

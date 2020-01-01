@@ -1,0 +1,66 @@
+<!--miniprogram/pages/cusReg/index.wxml-->
+<view wx:if="{{userInfo && !edit}}">
+  <view class="nickname">{{userInfo.nickName}}</view>
+  <view class="mynid">{{userInfo.nSW}}</view>
+  <image bindtap="onEditClick" class="edit" src="/asserts/edit.svg"></image>
+
+  <view wx:if="{{userInfo.nSW}}" class="options">
+
+    <!-- 发车 -->
+    <view class="uploader">
+      <navigator url="../pokemonCarProd/index" open-type="navigate" class="nav-go uploader-text">
+        <text>我要发车</text>
+      </navigator>
+    </view>
+
+    <!-- 上车 -->
+    <view class="uploader">
+      <navigator url="../pokemonCarProd/subs" open-type="navigate" class="nav-go uploader-text">
+        <text>我要上车</text>
+      </navigator>
+    </view>
+  </view>
+</view>
+
+
+<view wx:if="{{!userInfo || edit}}">
+  <view class="reg_title">Switch信息录入</view>
+    
+  <view class="page-body">
+    
+    <view class="page-section">
+      <view class="weui-cells__title">任天堂帐号</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" maxlength="17" value="{{nSW}}" type="text" placeholder="SW-" bindinput="bindSWInput" />
+          <image bindtap="onSwDeleteClick" class="icon" src="/asserts/delete.svg"></image>
+        </view>
+      </view>
+    </view>
+
+    <view class="page-section">
+      <view class="weui-cells__title">游戏昵称</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input maxlength="10" class="weui-input" placeholder="请输入宝可梦游戏昵称" bindinput="bindPokemonNickNameInput" />
+        </view>
+      </view>
+    </view>
+
+
+
+  </view>
+
+  <button bindtap="bindSave" type="primary">保存</button>
+
+  <button wx:if="{{userInfo !=null && edit}}" bindtap="onEditCancle" type="default">取消</button>
+
+  <view class="ul">
+    <view class="li">本工具可帮助聚聚摆脱贴吧开车的烦恼</view>
+    <view class="li">为车主自动生成随机密码</view>
+    <view class="li">自动向聚聚展示您的车名与游戏昵称</view>
+    <view class="li">自动将随机密码分发给正在等车的聚聚</view>
+    <view class="li">可限制聚聚获取密码的最大次数</view>
+  </view>
+</view>
+
